@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>list</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+    
+<body>
+
+    <header id="header">
+        <a href="#" id="list">
+            <div class="header_txt">账目列表</div>
+        </a>
+        <a href="#" id="review">
+            <div class="header_txt">账目统计</div>
+        </a>
+    </header>
+    
+    <section id="section1">
+        <div id="date_wrap">
+            <div id="date">7/20/2015</div>
+        </div>
+        <div id='items'>
+          <!--   <div class="list_item">
+                <div class="item_img">
+                    <img src="images/income.png"/>
+                </div>
+                <div class="item_num earn">
+                    +300
+                </div>
+                <div class="item_name">
+                    工资
+                </div>
+                <div class="item_next">
+                    <img src="images/next.png"/>
+                </div>
+            </div>
+            <div class="list_item">
+                <div class="item_img">
+                    <img src="images/food.png"/>
+                </div>
+                <div class="item_num cost">
+                    -300
+                </div>
+                <div class="item_name">
+                    四海一家
+                </div>
+                <div class="item_next">
+                    <img src="images/next.png"/>
+                </div>
+            </div> -->
+        </div>
+    </section>
+    
+    <section>
+        <div id="write_wrap">
+            <div id="write"><a href='add.html'>记一笔</a></div>
+        </div>
+    </section>
+    
+<script src='js/util.js'></script>
+<script>
+ (function(){
+    var html = '';
+    var items = util.$('items');
+    for(key in localStorage){
+        if(localStorage.hasOwnProperty(key) && key !=='length' && key !=='count'){
+            var obj = util.readData(key);
+            var colorClass = obj.money > 0 ? 'earn' : 'cost';
+            key = key.replace(/\d*/g,'');
+            html += '<div class="list_item"><div class="item_img"><img src="images/'+key+'.png"/></div>'
+                 + '<div class="item_num '+ colorClass +'">' + obj.money + '</div>'
+                 + '<div class="item_name"> '+ obj.msg +'</div>'
+                 + '<div class="item_next"><img src="images/next.png"/></div></div>';
+        }
+    }
+
+    items.innerHTML = html;
+
+
+ })();
+</script>
+</body>
+</html>
