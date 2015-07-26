@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>账目列表</title>
+    <link rel="stylesheet" href="css/list.css"/>
+</head>
+<body>
+    <div id="header">
+        <div class="header_txt list"><a href="list.html">账目列表</a></div>
+        <div class="header_txt review"><a href="#">账目统计</a></div>
+    </div>
+    
+    <div id="list_item">
+        <div id="date_wrap">
+            <div id="date">7/20/2015</div>
+        </div>
+        <div id="list_con">
+        
+        </div>
+    </div>
+    
+    <div id="add_item">
+        <a href="add.html">记一笔</a>
+    </div>
+    
+    <script src='js/util.js'></script>
+    <script>
+        (function(){
+    var html = '';
+    var items = util.$('items');
+    for(key in localStorage){
+        if(localStorage.hasOwnProperty(key) && key !=='length' && key !=='count'){
+            var obj = util.readData(key);
+            var colorClass = obj.money > 0 ? 'earn' : 'cost';
+            key = key.replace(/\d*/g,'');
+            html += '<div class="list_item"><div class="item_img"><img src="images/'+key+'.png"/></div>'
+                 + '<div class="item_num '+ colorClass +'">' + obj.money + '</div>'
+                 + '<div class="item_name"> '+ obj.msg +'</div>'
+                 + '<div class="item_next"><img src="images/next.png"/></div></div>';
+        }
+    }
+
+    items.innerHTML = html;
+
+
+ })();
+    </script>
+</body>
+</html>

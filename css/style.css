@@ -35,7 +35,7 @@ html,body{ height:100%;}
 
 /*header*/
 #header{ width:100%; height:9.3%; display:flex; flex-flow:row; font-family: "SourceHanSansCN";}
-#header a{ color:#fff; text-align: center; }
+#header a{ color:#fff; text-align: center;  }
 #list{ width:50%; background:#6ab7ff; display:flex;}
 .header_txt{ margin:auto;}
 #review{ width:50%; background:#406e99; display:flex;}
