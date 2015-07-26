@@ -15,12 +15,7 @@
     </div>
     
     <div id="list_item">
-        <div id="date_wrap">
-            <div id="date">7/20/2015</div>
-        </div>
-        <div id="list_con">
         
-        </div>
     </div>
     
     <div id="add_item">
@@ -31,7 +26,7 @@
     <script>
         (function(){
     var html = '';
-    var items = util.$('items');
+    var items = util.$('list_item');
     for(key in localStorage){
         if(localStorage.hasOwnProperty(key) && key !=='length' && key !=='count'){
             var obj = util.readData(key);
